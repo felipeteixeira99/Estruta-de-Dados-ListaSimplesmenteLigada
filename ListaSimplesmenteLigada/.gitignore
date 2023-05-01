@@ -1,9 +1,0 @@
-/bin/
-.classpath
-.project
-.settings/
-*.iml
-.idea/
-nbproject/
-build/
-.vscode/
