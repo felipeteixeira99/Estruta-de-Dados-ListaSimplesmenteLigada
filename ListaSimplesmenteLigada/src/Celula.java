@@ -11,11 +11,12 @@ public class Celula {
 		this.valor = valor;
 	}
 	
-	public Celula getCelula() {
+	public Celula getProximo() {
 		return this.proximo;
 	}
 	
-	public void setValor(Celula proximo) {
+	public void setProximo(Celula proximo) {
 		this.proximo = proximo;
 	}
+
 }

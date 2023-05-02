@@ -12,16 +12,16 @@ public interface Lista {
 	//E possivel saber se a lista esta vazia
 	//E possivel esvaziar a lista
 	
-	public int getTamanho(int valor); //retorna o tamanho da lista 
+	public int getTamanho(); //retorna o tamanho da lista 
 	
-	public void getAdicionarElemento(); //adicionar um elemento ao final da lista
+	public void getAdicionarElemento(String valor); //adicionar um elemento ao final da lista
 	
 	public void getAdicionarElementoPosicao(String valor, int posicao); //adiciona um elemento em uma posicao especifica
 	
 	public void getRemoverElemento(); //remove um elemento da lista 
 
 	public void getRemoverElementoPosicao(String valor, int posicao); // remove um elemeto da lista de acordo com sua posicao
-
+	
 	public String getElemento(int Posicao); //retorna o elemeto da lista de acordo com a sua posicao
 	
 	public int getPosicao(String valor); //retorna a posicao do elemento, e deve retornar -1 se ele nao existir na lista 
@@ -31,4 +31,5 @@ public interface Lista {
 	//public boolean estaVazia()//verifica se a lista esta vazia 
 	
 	public void getLimparLista(); //esvazia a lista
+
 }
