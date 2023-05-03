@@ -45,7 +45,8 @@ public class ListaSimples implements Lista {
 
 	@Override
 	public void getAdicionarElementoPosicao(String valor, int posicao) { 
-		if(posicao > getTamanho()) return; //verifica se a posicao e maior que a ultima da lista, em resumo serve para verificar se nao esta tentando acessar uma posicao que ja existe na lista, nao sendo possicel depois adicionar um elemento nessa posicao pois a mesma ja esta ocupada 
+		if(posicao > getTamanho()) return; // Serve para verificar se nao esta tentando adicionar em uma posicao maior que a lista, no maximo consegue adicionar na posicao +1 do ultimo da lista 
+		//verifica se a posicao e maior que a ultima da lista, em resumo serve para verificar se nao esta tentando acessar uma posicao que ja existe na lista, nao sendo possicel depois adicionar um elemento nessa posicao pois a mesma ja esta ocupada 
 		Celula novaCelula = new Celula(); //cria uma nova celula 
 		novaCelula.setValor(valor); //Adiciona um valor str nessa nova celula 
 		if(posicao == 0) {
@@ -91,7 +92,7 @@ public class ListaSimples implements Lista {
 					break; //caso encontre o valor o laco já para, com isso o programa não precisa continuar iterando
 				}
 			}	
-			
+			//sera null caso o laco nao encontre valor, e depois executa o resto do metodo
 			if(elementoParaRemover == null) return; //verifica se o elementoParaRemover é null, ou seja vazia, ele será caso o laco acima nao for executado
 			
 			if(elementoParaRemover == primeira) { //verifica se o elemento que será removido é o primeiro da lista 
