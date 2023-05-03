@@ -67,9 +67,8 @@ public class ListaSimples implements Lista {
 		if(isempty()) { //se a primeira for null nao faz nada 
 			return null;
 		}
-		else {
-			//TODO testar isso ao final do codigo 
-			if(posicao > getTamanho() -1) { //Precisa fazer isso pois se eu tentar acessar sem n-1 vai tentar acessar uma celula que nao existe 
+		else { 
+			if(posicao > getTamanho()-1) { //Precisa fazer isso pois se eu tentar acessar sem n-1 vai tentar acessar uma celula que nao existe 
 				return null;
 			}
 			else {
@@ -83,15 +82,49 @@ public class ListaSimples implements Lista {
 	}
 
 	@Override
-	public void getRemoverElemento() {
-		// TODO remover um elemento da lista 
+	public void getRemoverElemento(String valor) {
+		if(!isempty()) {  //o codigo so deve ser executado se a lista não estiver vazia 
+			Celula elementoParaRemover  = null; //criar uma variavel para armazenar o valor que sera removido da lista
+			for(int i = 0; i < getTamanho(); i++) { //o programa irá iterar sobre os elementos da lista para verificar se dentro de suas celulas tem o valor que ela esta buscando, lembrando que esse laço acaba quando o primeiro valor desejado for encontrado. Mesmo que haja outros valores iguais depois
+				if(getElemento(i).equals(valor)) { //essa linha faz a verificacao onde se lê o seguinte: valor dentro da celula == o valor passado dentro da funcao ? 
+					elementoParaRemover = getCelula(i); //se a condicao acima dor true, entao o programa armazena a celula inteira dentro da variavel elementoParaRemover
+					break; //caso encontre o valor o laco já para, com isso o programa não precisa continuar iterando
+				}
+			}	
+			
+			if(elementoParaRemover == null) return; //verifica se o elementoParaRemover é null, ou seja vazia, ele será caso o laco acima nao for executado
+			
+			if(elementoParaRemover == primeira) { //verifica se o elemento que será removido é o primeiro da lista 
+				primeira = primeira.getProximo(); //se for, o proximo elemento da atual primeira celula, passa a ser o novo primiero elemento da celula
+				return;
+			}
+			
+			Celula elementoAnterior = null; //criando uma variavel para receber o valor da celula anterior ao elemento que será removido
+			
+			for(int i = 0; i < getTamanho(); i++) { //percorre a lista procurando verificando se o proximo elemento da da celula atual dentro do laco e igual ao elemento anterior
+				if(getCelula(i).getProximo() == elementoParaRemover) {
+					elementoAnterior = getCelula(i); //se sim, esse valor sera armazenado dentro da variavel local elementoAnterior.
+					break; //quando achar, o laco se encerra 
+				}
+			}
+			elementoAnterior.setProximo(elementoParaRemover.getProximo()); //elemento anterior ao que será removido esta recebendo o proximo elemento do elemento que sera removido
+		}
 		
 	}
 
 	@Override
-	public void getRemoverElementoPosicao(String valor, int posicao) {
-		// TODO remover elemento em uma posicao especifica 
-		
+	public void getRemoverElementoPosicao(int posicao) {
+		if(posicao < getTamanho()) { //verifica se a posicao existe dentro da lista
+			if(posicao == 0) { //verifica se a celula que eu quero remover é a primeira celula
+				primeira = primeira.getProximo(); //se for a nova primeira celula passa a ser o proximo elemento da atual primeira celula
+			}
+			else {
+				Celula elementoParaRemover = getCelula(posicao); //guarda o valor da celula que sera removida
+				Celula elementoAnteriorAoRemovido = getCelula(posicao -1);	//guarda o valor da celula anterior ao elemento a ser removido
+				Celula elementoPosterior = elementoParaRemover.getProximo(); //guarda o valor da celula posterior ao elemento a ser removido
+				elementoAnteriorAoRemovido.setProximo(elementoPosterior); //Faz com que o elemento anterior ao removido aponte para o posteior ao removido
+			}
+		}
 	}
 
 	@Override
@@ -107,10 +140,14 @@ public class ListaSimples implements Lista {
 	}
 
 	@Override
-	public int getPosicao(String valor) {
+	public int getPosicao(String valor) { 
 		// TODO Retornar a posicao do elemento
-		
-		return 0;
+		for(int i = 0; i < getTamanho(); i++) {//itera sobre a lista verificando em qual posicao ele vai encontrar o elemento desejado 
+			if(getElemento(i).equals(valor)) { //quando encontrar vai retornar o i, que indica a posicao do elemento
+				return i;
+			}
+		}
+		return -1; //indica que o valor nao foi encontrado na lista
 	}
 
 	@Override

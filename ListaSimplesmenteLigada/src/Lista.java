@@ -18,9 +18,9 @@ public interface Lista {
 	
 	public void getAdicionarElementoPosicao(String valor, int posicao); //adiciona um elemento em uma posicao especifica
 	
-	public void getRemoverElemento(); //remove um elemento da lista 
+	public void getRemoverElemento(String valor); //remove um elemento da lista 
 
-	public void getRemoverElementoPosicao(String valor, int posicao); // remove um elemeto da lista de acordo com sua posicao
+	public void getRemoverElementoPosicao(int posicao); // remove um elemeto da lista de acordo com sua posicao
 	
 	public String getElemento(int Posicao); //retorna o elemeto da lista de acordo com a sua posicao
 	
