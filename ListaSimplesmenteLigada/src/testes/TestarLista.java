@@ -1,27 +1,11 @@
+package testes;
+import listas.Lista;
+import listas.ligada.ListaSimples;
 
 public class TestarLista {
 
 	public static void main(String[] args) {
-		ListaSimples lista = new ListaSimples();
-//		System.out.println(lista.isempty());
-//		System.out.println(lista.getTamanho());
-//		System.out.println(lista.getInicio());
-//		lista.getAdicionarElemento("Primeiro");
-//		lista.getAdicionarElemento("Segundo");
-//		lista.getAdicionarElemento("Terceiro");
-//		System.out.println(lista);
-//		lista.getAdicionarElementoPosicao("Quarto", 1);
-//		System.out.println(lista);
-//		lista.getRemoverElemento("Terceiro");
-//		System.out.println(lista);
-//		lista.getRemoverElementoPosicao(1);
-//		//System.out.println(lista.getTamanho());
-//		System.out.println(lista);
-//		System.out.println(lista.getElemento(1));
-//		lista.getAdicionarElemento("Teste");
-//		System.out.println(lista);
-//		System.out.println(lista.getPosicao("Teste"));
-		
+		Lista lista = new ListaSimples();
 		System.out.println(lista.isempty());
 		lista.getAdicionarElemento("Primeiro");
 		lista.getAdicionarElemento("Segundo");

@@ -1,3 +1,4 @@
+package listas;
 
 public interface Lista {
 	//Tem inicio 

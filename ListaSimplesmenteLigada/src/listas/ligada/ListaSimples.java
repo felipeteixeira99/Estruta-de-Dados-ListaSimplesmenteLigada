@@ -1,7 +1,10 @@
+package listas.ligada;
+
+import listas.Lista;
 
 public class ListaSimples implements Lista {
 	
-	private Celula primeira; //Primeira celula da lista 
+	private Celula primeira = new Celula(); //Primeira celula da lista 
 	
 	public Celula getInicio() { //retorna a primeira celula da lista 
 		return primeira;
